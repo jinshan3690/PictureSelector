@@ -123,6 +123,12 @@ public class PictureSelectorPreviewWeChatStyleActivity extends PicturePreviewAct
     public void initPictureSelectorStyle() {
         super.initPictureSelectorStyle();
         if (PictureSelectionConfig.uiStyle != null) {
+            ColorStateList textColor = AttrsUtils.getColorStateList(PictureSelectionConfig.uiStyle.picture_top_titleRightTextColor);
+            if (textColor != null) {
+                mTvPictureRight.setTextColor(textColor);
+            }else{
+                mTvPictureRight.setTextColor(ContextCompat.getColor(getContext(), R.color.picture_color_white));
+            }
             if (!TextUtils.isEmpty(PictureSelectionConfig.uiStyle.picture_top_titleRightDefaultText)) {
                 mTvPictureRight.setText(PictureSelectionConfig.uiStyle.picture_top_titleRightDefaultText);
             }
@@ -148,8 +154,6 @@ public class PictureSelectorPreviewWeChatStyleActivity extends PicturePreviewAct
             } else {
                 selectBarLayout.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.picture_color_half_grey));
             }
-
-            mTvPictureRight.setTextColor(ContextCompat.getColor(getContext(), R.color.picture_color_white));
 
             if (PictureSelectionConfig.uiStyle.picture_bottom_selectedCheckStyle != 0) {
                 check.setBackgroundResource(PictureSelectionConfig.uiStyle.picture_bottom_selectedCheckStyle);
@@ -372,7 +376,15 @@ public class PictureSelectorPreviewWeChatStyleActivity extends PicturePreviewAct
                 // 重置一片内存区域 不然在其他地方添加也影响这里的数量
                 mGalleryAdapter.setNewData(selectData);
             }
-            if (PictureSelectionConfig.style != null) {
+            if (PictureSelectionConfig.uiStyle != null) {
+                ColorStateList textColor = AttrsUtils.getColorStateList(PictureSelectionConfig.uiStyle.picture_top_titleRightTextColor);
+                if (textColor != null) {
+                    mTvPictureRight.setTextColor(textColor);
+                }
+                if (PictureSelectionConfig.uiStyle.picture_top_titleRightTextNormalBackground != 0) {
+                    mTvPictureRight.setBackgroundResource(PictureSelectionConfig.uiStyle.picture_top_titleRightTextNormalBackground);
+                }
+            } else if (PictureSelectionConfig.style != null) {
                 if (PictureSelectionConfig.style.pictureCompleteTextColor != 0) {
                     mTvPictureRight.setTextColor(PictureSelectionConfig.style.pictureCompleteTextColor);
                 }

@@ -519,7 +519,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // 单独拍照
                 PictureSelector.create(MainActivity.this)
                         .openCamera(chooseMode)// 单独拍照，也可录像或也可音频 看你传入的类型是图片or视频
-                        .theme(themeId)// 主题样式设置 具体参考 values/styles
+//                        .theme(themeId)// 主题样式设置 具体参考 values/styles
                         .imageEngine(GlideEngine.createGlideEngine())// 外部传入图片加载引擎，必传项
                         .setPictureStyle(mPictureParameterStyle)// 动态自定义相册主题
                         .setPictureCropStyle(mCropParameterStyle)// 动态自定义裁剪主题
@@ -881,15 +881,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.rb_sina_style:
                 themeId = R.style.picture_Sina_style;
-                isWeChatStyle = false;
+                isWeChatStyle = true;
                 mPictureParameterStyle = getSinaStyle();
-                mSelectorUIStyle = PictureSelectorUIStyle.ofSelectTotalStyle();
+                mSelectorUIStyle = PictureSelectorUIStyle.ofNewStyle();
                 break;
             case R.id.rb_we_chat_style:
                 themeId = R.style.picture_WeChat_style;
                 isWeChatStyle = true;
                 mPictureParameterStyle = getWeChatStyle();
-                mSelectorUIStyle = PictureSelectorUIStyle.ofNewStyle();
+                mSelectorUIStyle = PictureSelectorUIStyle.ofNewStyleLight();
                 break;
             case R.id.rb_default:
                 animationMode = AnimationType.DEFAULT_ANIMATION;
@@ -1004,7 +1004,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 是否开启右下角已完成(0/9)风格
         mPictureParameterStyle.isOpenCompletedNumStyle = false;
         // 是否开启类似QQ相册带数字选择风格
-        mPictureParameterStyle.isOpenCheckNumStyle = false;
+        mPictureParameterStyle.isOpenCheckNumStyle = true;
         // 相册状态栏背景色
         mPictureParameterStyle.pictureStatusBarColor = Color.parseColor("#FFFFFF");
         // 相册列表标题栏背景色
@@ -1314,7 +1314,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 设置NavBar Color SDK Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP有效
         mPictureParameterStyle.pictureNavBarColor = Color.parseColor("#393a3e");
         // 标题栏高度
-        mPictureParameterStyle.pictureTitleBarHeight = ScreenUtils.dip2px(getContext(), 48);
+        mPictureParameterStyle.pictureTitleBarHeight = ScreenUtils.dip2px(getContext(), 44);
         // 标题栏右侧按钮方向箭头left Padding
         mPictureParameterStyle.pictureTitleRightArrowLeftPadding = ScreenUtils.dip2px(getContext(), 3);
 
