@@ -214,8 +214,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        animationStyle.activityPreviewEnterAnimation = R.anim.picture_anim_up_in;
 //                        animationStyle.activityPreviewExitAnimation = R.anim.picture_anim_down_out;
                         PictureSelector.create(MainActivity.this)
-                                .themeStyle(R.style.picture_default_style) // xml设置主题
-                                .setPictureStyle(mPictureParameterStyle)// 动态自定义相册主题
+                                .setPictureStyle(PictureParameterStyle.ofNewStyleLight(true))
+                                .isWeChatStyle(true)
                                 //.setPictureWindowAnimationStyle(animationStyle)// 自定义页面启动动画
                                 .setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)// 设置相册Activity方向，不设置默认使用系统
                                 .isNotPreviewDownload(true)// 预览图片长按是否可以下载

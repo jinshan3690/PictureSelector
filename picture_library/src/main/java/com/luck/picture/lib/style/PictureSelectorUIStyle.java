@@ -672,6 +672,8 @@ public class PictureSelectorUIStyle {
 
         uiStyle.isNewSelectStyle = true;
 
+        uiStyle.picture_statusBarChangeTextColor = true;
+
         uiStyle.picture_switchSelectTotalStyle = true;
 
         uiStyle.picture_statusBarBackgroundColor = Color.parseColor("#FFFFFF");
