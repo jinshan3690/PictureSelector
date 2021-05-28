@@ -342,8 +342,7 @@ public class PictureSelectorWeChatStyleActivity extends PictureSelectorActivity 
                 }
             }
         } else {
-            String mimeType = list.get(0).getMimeType();
-            int maxSize = PictureMimeType.isHasVideo(mimeType) && config.maxVideoSelectNum > 0 ? config.maxVideoSelectNum : config.maxSelectNum;
+            int maxSize = size > 0 && PictureMimeType.isHasVideo(list.get(0).getMimeType()) && config.maxVideoSelectNum > 0 ? config.maxVideoSelectNum : config.maxSelectNum;
             if (config.selectionMode == PictureConfig.SINGLE) {
                 boolean isCompleteReplaceNum = isNotEmptyStyle && PictureSelectionConfig.style.isCompleteReplaceNum;
                 if (isCompleteReplaceNum && !TextUtils.isEmpty(PictureSelectionConfig.style.pictureCompleteText)) {
