@@ -442,8 +442,8 @@ public class PictureSelectorPreviewWeChatStyleActivity extends PicturePreviewAct
                 }
             }
         } else {
-            String mimeType = selectData.get(0).getMimeType();
-            int maxSize = PictureMimeType.isHasVideo(mimeType) && config.maxVideoSelectNum > 0 ? config.maxVideoSelectNum : config.maxSelectNum;
+            int size = selectData.size();
+            int maxSize = size > 0 && PictureMimeType.isHasVideo(selectData.get(0).getMimeType()) && config.maxVideoSelectNum > 0 ? config.maxVideoSelectNum : config.maxSelectNum;
             if (config.selectionMode == PictureConfig.SINGLE) {
                 if (startCount <= 0) {
                     mTvPictureRight.setText(isNotEmptyStyle && !TextUtils.isEmpty(PictureSelectionConfig.style.pictureUnCompleteText)
